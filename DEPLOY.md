@@ -73,3 +73,7 @@ Or rely on Vercel’s build step to run `sync_public.py` on every deploy.
 ## 5. Limits
 
 Vercel Functions have [size and duration limits](https://vercel.com/docs/functions/limitations). This app is small; `pandas` adds weight—if the bundle is too large, trim deps or add `excludeFiles` in `vercel.json`.
+
+## 6. Vercel CLI vs Git
+
+If `vercel deploy` fails locally with **`EPERM` opening `.env`** (e.g. after locking `.env` to your user with `icacls`), rely on **Git**: with the repo connected in Vercel, every push to `main` triggers a production build on Vercel’s servers (no local `.env` read). Set secrets only in the Vercel dashboard.
