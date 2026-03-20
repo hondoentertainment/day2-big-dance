@@ -20,6 +20,8 @@ git push -u origin main
 
 Use SSH remote if you prefer: `git@github.com:YOUR_USER/YOUR_REPO.git`.
 
+Example remote (this project): [github.com/hondoentertainment/day2-big-dance](https://github.com/hondoentertainment/day2-big-dance).
+
 ## 2. Vercel project
 
 1. Sign in at [vercel.com](https://vercel.com) → **Add New…** → **Project**.
