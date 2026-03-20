@@ -1,0 +1,10 @@
+[project]
+name = "day2-bigdance"
+version = "0.2.0"
+description = "NCAA Day 2 ATS picks — FastAPI + static UI"
+requires-python = ">=3.12"
+readme = "README.md"
+
+# Vercel resolves the FastAPI ASGI instance from this entry (see Vercel FastAPI docs).
+[project.scripts]
+app = "app.main:app"

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0c0f14" />
+  <title>Day 2 — ATS picks</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to picks</a>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>NCAA men’s basketball — Day 2 ATS</h1>
+      <p class="tagline">Market + optional efficiency blend. Not gambling advice.</p>
+      <p id="last-updated" class="last-updated" aria-live="polite"></p>
+      <div class="actions toolbar" role="toolbar" aria-label="Picks actions">
+        <button type="button" id="btn-refresh" class="btn primary">Refresh live odds</button>
+        <button type="button" id="btn-copy" class="btn">Copy top 16</button>
+        <button type="button" id="btn-print" class="btn">Print</button>
+        <a class="btn link" href="https://the-odds-api.com/" target="_blank" rel="noopener noreferrer">Odds API</a>
+        <a class="btn link" href="https://status.the-odds-api.com/" target="_blank" rel="noopener noreferrer">Status</a>
+      </div>
+      <div class="refresh-secret-row">
+        <label for="refresh-secret" class="secret-label">Refresh secret (optional)</label>
+        <input
+          id="refresh-secret"
+          name="refresh-secret"
+          type="password"
+          autocomplete="off"
+          class="secret-input"
+          placeholder="Only if REFRESH_SECRET is set on server"
+          aria-describedby="secret-hint"
+        />
+        <p id="secret-hint" class="hint inline-hint">Sent as <code>X-Refresh-Secret</code> on live refresh only. Not stored on server.</p>
+      </div>
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="panel help" aria-labelledby="how-heading">
+      <h2 id="how-heading">How to read this</h2>
+      <ul>
+        <li><strong>Pick</strong> is the team to take <strong>against the spread</strong> for your pool, with the line spelled as <strong>Team ±spread</strong>.</li>
+        <li><strong>Confidence index</strong> ranks games (higher = stronger lean vs a coin flip). It is <em>not</em> a guaranteed win rate for one night.</li>
+        <li><strong>Market-only</strong> means ratings did not merge for that game—treat the row as softer.</li>
+        <li>Status is always written in text, not only color.</li>
+      </ul>
+    </section>
+
+    <section id="meta-section" class="panel meta hidden" aria-label="Run metadata"></section>
+
+    <section id="alert-section" class="panel alert hidden" role="alert"></section>
+
+    <section class="panel top16-panel" id="top16-section">
+      <h2>Top 16 by confidence</h2>
+      <p class="hint">Fewer than 16 rows means fewer games matched the target date or had usable spreads. On small screens, picks appear as cards below.</p>
+
+      <div id="mobile-cards-top16" class="mobile-cards-top16 card-grid" aria-label="Top 16 picks as cards"></div>
+
+      <div class="table-wrap desktop-table-top16">
+        <table id="picks-table" aria-describedby="how-heading">
+          <caption class="sr-only">Ranked ATS picks</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Pick</th>
+              <th scope="col">Line</th>
+              <th scope="col">Matchup</th>
+              <th scope="col">Start</th>
+              <th scope="col">Conf. index</th>
+              <th scope="col">P(blend)</th>
+              <th scope="col">Data</th>
+            </tr>
+          </thead>
+          <tbody id="picks-body">
+            <tr><td colspan="8" class="loading">Loading picks…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel print-block" id="print-top16" aria-hidden="true"></section>
+
+    <section class="panel">
+      <h2>All ranked picks</h2>
+      <p class="hint">Full list from the same model run.</p>
+      <div class="table-wrap">
+        <table id="picks-all" aria-label="All picks">
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Pick</th>
+              <th scope="col">Line</th>
+              <th scope="col">Matchup</th>
+              <th scope="col">Conf.</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody id="picks-all-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>Weights: 55% market de-vig, 45% ratings margin (when merged). GET uses cache; live refresh uses POST. See README.</p>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

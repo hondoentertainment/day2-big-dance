@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python scripts/sync_public.py",
+  "installCommand": "pip install -r requirements.txt",
+  "functions": {
+    "app/**/*.py": {
+      "excludeFiles": "{.venv/**,tests/**,**/__pycache__/**,.pytest_cache/**,data/runs/**,data/last_picks.json,data/picks_export.csv,data/graded_picks.json}"
+    }
+  }
+}

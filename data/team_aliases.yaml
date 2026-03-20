@@ -1,0 +1,4 @@
+# Optional: map Odds API team strings to ratings CSV names (normalized keys).
+# Keys/values are normalized internally; use readable names here.
+# Example:
+# "florida gators": "florida gators"

@@ -1,0 +1,15 @@
+# Local secrets (never commit real keys)
+.env
+.env.*
+!.env.example
+.vercel/
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/last_picks.json
+data/picks_export.csv
+data/graded_picks.json
+data/results.csv
+data/runs/*.json
+!data/runs/.gitkeep
