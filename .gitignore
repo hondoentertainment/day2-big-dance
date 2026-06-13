@@ -13,3 +13,4 @@ data/graded_picks.json
 data/results.csv
 data/runs/*.json
 !data/runs/.gitkeep
+.vercel
